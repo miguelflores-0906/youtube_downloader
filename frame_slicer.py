@@ -3,7 +3,7 @@ import os
 import sys
 
 # Change this to the directory of the frames that need slicing
-PATH = "D:\Documents\DLSU\Year 4 Term 1\Immersion CV\youtube_downloader\Olongapo City CCTV Live Stream_frames"
+PATH = "D:\Documents\DLSU\Year 4 Term 1\Immersion CV\youtube_downloader\PHILIPPINES - Quad 4 cam street view - 6th October evening_frames"
 
 # def listdir(dir):
 #     filenames = os.listdir(dir)
@@ -18,7 +18,7 @@ def four_slice(actual_img, PATH, image_name):
         os.mkdir(PATH + "\\bot_left\\")
         os.mkdir(PATH + "\\bot_right\\")
     except OSError:
-        print ("Directory already created")
+        # print ("Directory already created")
         pass
 
     for i in range(4):
@@ -41,6 +41,7 @@ def four_slice(actual_img, PATH, image_name):
             # crop the image to the bottom right
             cropped_img = actual_img.crop((width/2, height/2, width, height))
             cropped_img.save(PATH + "\\bot_right\\" + "bot_right_" + image_name[:-4] + ".jpg")
+    return
 
 def nine_slice(actual_img, PATH, image_name):
     try:
@@ -54,7 +55,7 @@ def nine_slice(actual_img, PATH, image_name):
         os.mkdir(PATH + "\\bot_mid\\")
         os.mkdir(PATH + "\\bot_right\\")
     except OSError:
-        print ("Directory already created")
+        # print ("Directory already created")
         pass
 
     for i in range(9):
@@ -97,19 +98,26 @@ def nine_slice(actual_img, PATH, image_name):
             # crop the image to the bot right
             cropped_img = actual_img.crop((width/3*2, height/3*2, width, height))
             cropped_img.save(PATH + "\\bot_right\\" + "bot_right_" + image_name[:-4] + ".jpg")
+    return
 
-images = os.listdir(PATH)
+def main():
+    images = os.listdir(PATH)
 
-num_cam = sys.argv[1]
+    num_cam = int(sys.argv[1])
 
-actual_img = Image.open(PATH + "\\" + images[0])
-nine_slice(actual_img, PATH, images[0])
-actual_img.close()
+    print(type(num_cam))
 
-for image in images:
-    actual_img = Image.open(PATH + "\\" + image)
-    if num_cam == "4":
-        four_slice(actual_img, PATH, image)
-    elif num_cam == "9":
-        nine_slice(actual_img, PATH, image)
+    actual_img = Image.open(PATH + "\\" + images[0])
+    nine_slice(actual_img, PATH, images[0])
     actual_img.close()
+
+    for image in images:
+        actual_img = Image.open(PATH + "\\" + image)
+        if num_cam == 4:
+            four_slice(actual_img, PATH, image)
+        elif num_cam == 9:
+            nine_slice(actual_img, PATH, image)
+        actual_img.close()
+
+if __name__ == "__main__":
+    main()
