@@ -1,3 +1,12 @@
+"""
+    Created by: Benito Miguel D. Flores, IV
+
+    How to use:
+    1. Make sure that the script is in the same folder as the video you want to extract frames from.
+    2. Run the script through the CLI and input the name of the video file WITH FILE EXTENSION.
+    3. A folder with the name of the video file will be created in the same directory as the script.
+"""
+
 import os
 import cv2
 

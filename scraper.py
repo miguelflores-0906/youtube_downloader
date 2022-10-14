@@ -1,4 +1,12 @@
-# created by Miguel Flores
+"""
+    Created by: Benito Miguel D. Flores, IV
+
+    How to use:
+    1. Run the script in the CLI
+    2. Input the channel URL example: https://www.youtube.com/channel/UC0zHSfrOhKz_jRYtVrvU6zA (do not include other extensions such as "/videos" or "/featured")
+    3. Input how many videos the script would look through
+    4. Enter keywords to search for in the video titles (it would be good to skim through the channel to see what keywords are used)
+"""
 
 import scrapetube as st
 from random import randint

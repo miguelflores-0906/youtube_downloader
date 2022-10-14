@@ -1,9 +1,19 @@
+"""
+    Created by: Benito Miguel D. Flores, IV
+
+    How to use:
+    1. Replace the PATH variable with the path to the folder containing the images you want to slice/crop
+    2. Through the cli, input "python frame_slicer.py [number of cameras in the video]"
+    3. Folders in the PATH directory will be created with the sliced/cropped images
+"""
+
+
 from PIL import Image
 import os
 import sys
 
-# Change this to the directory of the frames that need slicing
-PATH = "D:\Documents\DLSU\Year 4 Term 1\Immersion CV\youtube_downloader\PHILIPPINES - Quad 4 cam street view - 6th October evening_frames"
+# Change this to the directory of the folder of the frames that need slicing
+PATH = "D:\Documents\DLSU\Year 4 Term 1\Immersion CV\youtube_downloader\Olongapo City CCTV Live Stream_frames"
 
 # def listdir(dir):
 #     filenames = os.listdir(dir)
